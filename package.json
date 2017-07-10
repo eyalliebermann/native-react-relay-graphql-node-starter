@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/eyalliebermann/native-react-relay-graphql-node-starter#readme",
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "path": "^0.12.7"
   }
 }
