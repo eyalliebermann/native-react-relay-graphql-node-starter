@@ -12,7 +12,7 @@ function debug() {
   return process.env.NODE_ENV != 'production';
 }
 
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, '../public')));
 
 //dynamic paths
 app.get('/hello', function (req, res) {
