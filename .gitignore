@@ -61,3 +61,4 @@ typings/
 #compiled graphql file
 data/schema.graphql
 build
+*.graphql
