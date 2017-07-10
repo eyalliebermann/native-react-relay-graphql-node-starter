@@ -8,5 +8,5 @@ app.get('/', function (req, res) {
 })
 
 app.listen(PORT, function () {
-  console.log(`Express server listens on hard coded port ${PORT}!`)
+  console.log(`Express server listens on port ${PORT}!`)
 })
