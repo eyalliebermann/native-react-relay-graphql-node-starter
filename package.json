@@ -4,11 +4,12 @@
   "description": "My own production ready informed bolierplate for fullstack native react app with graphql node server",
   "main": "server/server.js",
   "scripts": {
-    "clean": "rm -rf build && mkdir build",
-    "build": "npm run clean && npm run build-server",
-    "build-server": "babel server --out-dir build -s",
-    "start": "./node_modules/.bin/babel-node ./build/server.js",
-    "update-schema": "./node_modules/.bin/babel-node ./scripts/updateSchema.js"
+    "clean": "rm -rf build && mkdir build",//TODO clean schema too
+    "build-server": "babel -d ./build ./server -s",
+    "build": "npm run clean && && update-schema && npm run build-server",
+    "start": "node ./build/server.js",
+    "update-schema": "./node_modules/.bin/babel-node ./scripts/updateSchema.js",
+    "debug": "node --debug ./build/server.js.js"
   },
   "repository": {
     "type": "git",
