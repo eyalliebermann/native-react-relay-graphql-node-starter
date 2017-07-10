@@ -1,0 +1,29 @@
+{
+  "name": "native-react-relay-graphql-node-starter",
+  "version": "1.0.0",
+  "description": "My own production ready informed bolierplate for fullstack native react app with graphql node server",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eyalliebermann/native-react-relay-graphql-node-starter.git"
+  },
+  "keywords": [
+    "react-native",
+    "react",
+    "relay",
+    "production",
+    "node",
+    "graphql",
+    "boilerplate",
+    "starter-kit"
+  ],
+  "author": "Eyal Liebermann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eyalliebermann/native-react-relay-graphql-node-starter/issues"
+  },
+  "homepage": "https://github.com/eyalliebermann/native-react-relay-graphql-node-starter#readme"
+}
