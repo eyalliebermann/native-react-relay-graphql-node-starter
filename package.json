@@ -41,10 +41,10 @@
     "express-graphql": "^0.6.6",
     "graphql": "^0.10.3",
     "graphql-relay": "^0.5.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",    
+    "babel-cli": "^6.24.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.6.0"
   }
 }
