@@ -2,7 +2,7 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const path = require('path');
 
-const {Schema} = require('./data/schema');
+const {Schema} = require('../data/schema');
 
 const app = express();
 

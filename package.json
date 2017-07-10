@@ -2,9 +2,9 @@
   "name": "native-react-relay-graphql-node-starter",
   "version": "1.0.0",
   "description": "My own production ready informed bolierplate for fullstack native react app with graphql node server",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
-    "start": "./node_modules/.bin/babel-node ./server.js",
+    "start": "./node_modules/.bin/babel-node ./server/server.js",
     "update-schema": "./node_modules/.bin/babel-node ./scripts/updateSchema.js"
   },
   "repository": {
