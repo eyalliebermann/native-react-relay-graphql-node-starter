@@ -4,8 +4,8 @@
   "description": "My own production ready informed bolierplate for fullstack native react app with graphql node server",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "mocha"
+    "start": "babel-node ./server.js",
+    "update-schema": "babel-node ./scripts/updateSchema.js"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,17 @@
   },
   "homepage": "https://github.com/eyalliebermann/native-react-relay-graphql-node-starter#readme",
   "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-relay-plugin": "^0.11.0",
     "express": "^4.15.3",
+    "express-graphql": "^0.6.6",
+    "graphql": "^0.10.3",
+    "graphql-relay": "^0.5.2",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "babel-cli": "6.11.4"
   }
 }
