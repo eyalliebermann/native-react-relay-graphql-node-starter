@@ -1,9 +1,13 @@
 import {
     GraphQLObjectType,
     GraphQLID,
-    GraphQLString
+    GraphQLString,
+    GraphQLList
 } from 'graphql';
 
+import {
+    taskType
+} from './task';
 
 export const teamType = new GraphQLObjectType({
     name: 'Team',
@@ -20,6 +24,19 @@ export const teamType = new GraphQLObjectType({
         summary: {
             type: GraphQLString,
             description: 'summary about team roles'
+        },
+        tasks: {
+            type: new GraphQLList(taskType),
+            resolve: () => ([{
+                id: 'sdfsdf',
+                name: 'sdgsdfgsdg',
+                summary: 'dsg dfgsd sdfgsdfg sdfgsdg'
+            }, {
+                id: 'werwer',
+                name: 'wqerqwerwrewre',
+                summary: 'ytry ertert wtrwetb uu'
+            }])
+
         }
     })
 });
