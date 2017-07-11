@@ -20,36 +20,46 @@ import {
   getTasks,
 } from './database';
 
+//My types
 
-
-/**
- * Define your own types here
- */
-
-var teamType = new GraphQLObjectType({
+const teamType = new GraphQLObjectType({
   name: 'Team',
   description: 'A sub organization with its own tasks',
   fields: () => ({
     id: {
+      type:GraphQLID,
+      description:'team unqiue identifier'
+    },
+     name: {
       type:GraphQLString,
-      description:'team identifier',
-      resolve: ()=>'1'}
+      description:'team name'
+    },
+    summary: {
+      type:GraphQLString,
+      description:'summary about team roles'
+    }
   })
 });
+
 
 /**
  * This is the type that will be the root of our query,
  * and the entry point into our schema.
  */
-var queryType = new GraphQLObjectType({
+const queryType = new GraphQLObjectType({
   name: 'Query',
-  fields: () => ({
+  fields: {
     // Add your own root fields here
     myTeam: {
       type: teamType,
-      resolve: () => getCurrentTeam(),
+      description:'The team of which I am member',
+      resolve: () => ( {
+          id: '1',
+          name: 'IT',
+          summary: 'The team that does this'
+        })
+      },
     },
-  }),
 });
 
 
