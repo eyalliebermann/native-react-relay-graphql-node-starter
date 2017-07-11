@@ -48,20 +48,8 @@ example answer:
     }
   }
 }
-*/
 
-import {
-  GraphQLBoolean,
-  GraphQLFloat,
-  GraphQLID,
-  GraphQLInt,
-  GraphQLList,
-  GraphQLNonNull,
-  GraphQLObjectType,
-  GraphQLSchema,
-  GraphQLString,
-} from 'graphql';
-
+////////////////////
 import {
   connectionArgs,
   connectionDefinitions,
@@ -72,22 +60,12 @@ import {
   nodeDefinitions,
 } from 'graphql-relay';
 
-import {
-  // Import methods that your schema can use to interact with your database
-  Team,
-  Task,
-  getTeam,
-  getCurrentTeam,
-  getTask,
-  getTasks,
-} from './database';
-
 /**
  * We get the node interface and field from the Relay library.
  *
  * The first method defines the way we resolve an ID to its object.
  * The second defines the way we resolve an object to its GraphQL type.
- */
+ *//*
 var {nodeInterface, nodeField} = nodeDefinitions(
   (globalId) => {
     var {type, id} = fromGlobalId(globalId);
@@ -109,6 +87,33 @@ var {nodeInterface, nodeField} = nodeDefinitions(
     }
   }
 );
+*/
+
+import {
+  GraphQLBoolean,
+  GraphQLFloat,
+  GraphQLID,
+  GraphQLInt,
+  GraphQLList,
+  GraphQLNonNull,
+  GraphQLObjectType,
+  GraphQLSchema,
+  GraphQLString,
+} from 'graphql';
+
+
+
+import {
+  // Import methods that your schema can use to interact with your database
+  Team,
+  Task,
+  getTeam,
+  getCurrentTeam,
+  getTask,
+  getTasks,
+} from './database';
+
+
 
 /**
  * Define your own types here
@@ -118,35 +123,41 @@ var teamType = new GraphQLObjectType({
   name: 'Team',
   description: 'A sub organization with its own tasks',
   fields: () => ({
-    id: globalIdField('Team'),
-    tasks: {
-      type: taskConnection,
-      description: 'A team\'s collection of tasks',
-      args: connectionArgs,
-      resolve: (_, args) => connectionFromArray(getTasks(), args),
-    },
-  }),
-  interfaces: [nodeInterface],
+    id: {
+      type:GraphQLString,
+      description:'team identifier',
+      resolve: ()=>'1'}
+      //,
+    // first_task:{
+    //   type:Task,
+    //   description:'The first task',
+    //   resolve:()=>getTaskByIndex(0)
+
+    // }
+    //,
+    // tasks: {
+    //   type: GraphQLList(Task),
+    //   description: 'A team\'s collection of tasks',
+    //   resolve: () => getTasks()
+    // },
+  })
 });
 
-var taskType = new GraphQLObjectType({
-  name: 'Task',
-  description: 'A shiny task',
-  fields: () => ({
-    id: globalIdField('Task'),
-    name: {
-      type: GraphQLString,
-      description: 'The name of the task',
-    },
-  }),
-  interfaces: [nodeInterface],
-});
-
-/**
- * Define your own connection types here
- */
-var {connectionType: taskConnection} =
-  connectionDefinitions({name: 'Task', nodeType: taskType});
+// var taskType = new GraphQLObjectType({
+//   name: 'Task',
+//   description: 'A shiny task',
+//   fields: () => ({
+//     id: {GraphQLID},
+//     title: {
+//       type: GraphQLString,
+//       description: 'The name of the task',
+//     },
+//     description:{
+//       type:GRaphQLString,
+//       description:'The elaborated description of the task'
+//     }
+//   })
+// });
 
 /**
  * This is the type that will be the root of our query,
@@ -155,25 +166,15 @@ var {connectionType: taskConnection} =
 var queryType = new GraphQLObjectType({
   name: 'Query',
   fields: () => ({
-    node: nodeField,
     // Add your own root fields here
-    currentTeam: {
+    myTeam: {
       type: teamType,
       resolve: () => getCurrentTeam(),
     },
   }),
 });
 
-/**
- * This is the type that will be the root of our mutations,
- * and the entry point into performing writes in our schema.
- */
-var mutationType = new GraphQLObjectType({
-  name: 'Mutation',
-  fields: () => ({
-    // Add your own mutations here
-  })
-});
+
 
 /**
  * Finally, we construct our schema (whose starting query type is the query
