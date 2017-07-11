@@ -4,6 +4,7 @@
   "description": "My own production ready informed bolierplate for fullstack native react app with graphql node server",
   "main": "server/server.js",
   "scripts": {
+    "dev": "npm run clean  && npm run update-schema && npm run build-server && npm start ",
     "clean": "rm -rf build && mkdir build",
     "build-server": "babel -d ./build ./server -s",
     "build": "npm run clean && npm run update-schema && npm run build-server",

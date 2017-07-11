@@ -8,7 +8,8 @@ class Task {}
 // Mock data
 var myTeam = new Team();
 myTeam.id = '1';
-myTeam.name = 'The white line';
+myTeam.name = 'IT';
+myTeam.summary='The team that does this';
 
 var tasks = [{
     id: 'qwe',

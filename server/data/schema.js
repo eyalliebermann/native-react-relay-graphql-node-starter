@@ -53,11 +53,7 @@ const queryType = new GraphQLObjectType({
     myTeam: {
       type: teamType,
       description:'The team of which I am member',
-      resolve: () => ( {
-          id: '1',
-          name: 'IT',
-          summary: 'The team that does this'
-        })
+      resolve: getCurrentTeam
       },
     },
 });
