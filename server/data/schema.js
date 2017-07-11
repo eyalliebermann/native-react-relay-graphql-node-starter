@@ -20,8 +20,8 @@ import {
   getTasks,
 } from './database';
 
-import teamType from './types/team';
-
+//const teamType = require( './types/team');
+import {teamType} from './types/team';
 
 /**
  * This is the type that will be the root of our query,

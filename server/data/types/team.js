@@ -5,7 +5,7 @@ import {
 } from 'graphql';
 
 
-module.exports = new GraphQLObjectType({
+export const teamType = new GraphQLObjectType({
     name: 'Team',
     description: 'A sub organization with its own tasks',
     fields: () => ({
