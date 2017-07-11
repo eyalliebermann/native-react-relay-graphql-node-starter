@@ -9,6 +9,8 @@ import {
     taskType
 } from './task';
 
+import {getTasks} from '../database';
+
 export const teamType = new GraphQLObjectType({
     name: 'Team',
     description: 'A sub organization with its own tasks',
@@ -27,15 +29,7 @@ export const teamType = new GraphQLObjectType({
         },
         tasks: {
             type: new GraphQLList(taskType),
-            resolve: () => ([{
-                id: 'sdfsdf',
-                name: 'sdgsdfgsdg',
-                summary: 'dsg dfgsd sdfgsdfg sdfgsdg'
-            }, {
-                id: 'werwer',
-                name: 'wqerqwerwrewre',
-                summary: 'ytry ertert wtrwetb uu'
-            }])
+            resolve: getTasks
 
         }
     })
